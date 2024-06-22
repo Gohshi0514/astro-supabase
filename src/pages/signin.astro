@@ -1,6 +1,6 @@
 ---
 import Base from "../layout/Base.astro";
-const title = "Sign in";
+const title = "ログイン";
 ---
 
 <Base title={title}>
@@ -12,10 +12,11 @@ const title = "Sign in";
         {title}
       </h1>
       <p class="text-zinc-500 dark:text-zinc-400 text-sm mb-8 w-full">
-        New to demo? <a
+        アカウントをお持ちでない場合 →
+        <a
           href="/register"
           class="dark:text-blue-400 text-blue-600 underline underline-offset-2 font-medium"
-          >Create an account</a
+          >新規登録</a
         >
       </p>
       <form
@@ -27,8 +28,9 @@ const title = "Sign in";
           <label
             for="email"
             class="font-medium dark:text-zinc-300 text-zinc-900 text-sm"
-            >Email</label
           >
+            メールアドレス
+          </label>
           <input
             id="email"
             type="email"
@@ -39,8 +41,9 @@ const title = "Sign in";
         <label
           for="password"
           class="font-medium dark:text-zinc-300 text-zinc-900 text-sm"
-          >Password</label
         >
+          パスワード
+        </label>
         <input
           id="password"
           type="password"
@@ -50,19 +53,20 @@ const title = "Sign in";
         <button
           type="submit"
           class="dark:bg-zinc-100 bg-zinc-900 border-zinc-900 py-1.5 border dark:border-zinc-100 rounded-md mt-2 dark:text-zinc-900 text-zinc-100 font-medium text-sm focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 dark:focus:ring-offset-zinc-900 disabled:opacity-50 disabled:cursor-not-allowed"
-          >Sign In</button
         >
+          ログイン
+        </button>
       </form>
       <hr class="h-0 border-t mt-8 dark:border-zinc-600 border-zinc-300" />
       <p class="-mt-2.5 text-xs text-center dark:text-zinc-400 text-zinc-500">
-        <span class="dark:bg-zinc-900 bg-zinc-50 px-4">Or with</span>
+        <span class="dark:bg-zinc-900 bg-zinc-50 px-4"> または</span>
       </p>
       <form
         action="/api/auth/signin"
         method="post"
         class="w-full max-w-md mt-6 flex flex-col gap-2"
       >
-      <!-- Githubでログインは現在利用できません -->
+        <!-- Githubでログインは現在利用できません -->
         <!-- <button
           value="github"
           name="provider"
@@ -111,7 +115,7 @@ const title = "Sign in";
               d="M130.55 50.479c24.514 0 41.05 10.589 50.479 19.438l36.844-35.974C195.245 12.91 165.798 0 130.55 0 79.49 0 35.393 29.301 13.925 71.947l42.211 32.783c10.59-31.477 39.891-54.251 74.414-54.251"
             ></path>
           </svg>
-           Sign in with Google
+          Googleでログイン
         </button>
       </form>
     </section>
