@@ -3,7 +3,7 @@ import Base from "../layout/Base.astro";
 import { supabase } from "../lib/supabase";
 import { Reviews, type GuestbookEntry } from "../components/Reviews";
 
-const { email } = Astro.locals;
+const { email } = Astro.locals as { email: string };
 
 const { data } = (await supabase
   .from("guestbook")
@@ -13,18 +13,13 @@ const { data } = (await supabase
 
 <Base title="Dashboard">
   <section class="py-24 px-4 w-full flex flex-col items-center gap-2">
-    <p
-      class="max-w-prose text-xl text-indigo-600 dark:text-indigo-400 font-semibold"
-    >
-      {email}
-    </p>
     <p class="max-w-prose text-lg mb-2 dark:text-zinc-100">
-      This is a protected page. You can only see this if you are logged in.
+      こんにちは、{email}さん！
     </p>
     <a
       href="/api/auth/signout"
       class="mb-10 bg-zinc-900 dark:bg-zinc-100 text-zinc-100 dark:text-zinc-900 px-3 py-1 rounded-md"
-      >Sign out</a
+      >ログアウト</a
     >
     <Reviews reviews={data} client:idle />
   </section>
