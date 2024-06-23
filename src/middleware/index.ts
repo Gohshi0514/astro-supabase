@@ -2,8 +2,11 @@ import { defineMiddleware } from "astro:middleware";
 import { supabase } from "../lib/supabase";
 import micromatch from "micromatch";
 
+// ログインしていない場合ログインページにリダイレクト
 const protectedRoutes = ["/dashboard(|/)"];
+// ログインしている場合はダッシュボードにリダイレクト
 const redirectRoutes = ["/signin(|/)", "/register(|/)"];
+// APIの場合はトークンがあるか確認
 const proptectedAPIRoutes = ["/api/guestbook(|/)"];
 
 export const onRequest = defineMiddleware(

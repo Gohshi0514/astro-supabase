@@ -6,7 +6,7 @@ import React from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: "https://astro-supabase-auth.vercel.app",
-  //SSRを使っているので、outputをserverにする
+  //認証を使うのでSSRで出力
   output: "server",
   adapter: vercel(),
   integrations: [tailwind(), React()],
